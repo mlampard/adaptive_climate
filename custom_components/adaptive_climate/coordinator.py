@@ -107,7 +107,7 @@ class AdaptiveClimateCoordinator(DataUpdateCoordinator):
         auto_mode_enable = self.config.get("auto_mode_enable", True)
 
         if not auto_mode_enable:
-#saynotospam            self.log_event(f"Auto mode disabled. No actions will be taken.")
+            self.log_event(f"Auto mode disabled. No actions will be taken.")
             return self._last_valid_params or self._default_params("manual_mode")
 
         # Comfort calculation and control
@@ -426,7 +426,7 @@ class AdaptiveClimateCoordinator(DataUpdateCoordinator):
                     self.log_event("System turned climate entity ON. Resetting system_turned_off flag.")
 
         if current_hvac_mode == HVACMode.OFF:
-#saynotospam            self.log_event(f"HVAC is OFF, skipping further actions.")
+            self.log_event(f"HVAC is OFF, skipping further actions.")
             return
 
         def needs_update(current, target, threshold):
